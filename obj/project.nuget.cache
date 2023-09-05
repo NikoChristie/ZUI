@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dgSpecHash": "vBvgVnJhLftZjtiCStH0lTqACyZkAb5bsp64F2gEC7JEKknXFwzEbcLy6GgQhFoI5kJQmXp9bbuzNn6JLxMhmg==",
+  "success": true,
+  "projectFilePath": "c:\\Users\\12044\\Desktop\\Portfolio\\ZUI\\ZUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\12044\\.nuget\\packages\\autofac\\5.2.0\\autofac.5.2.0.nupkg.sha512",
+    "C:\\Users\\12044\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\12044\\.nuget\\packages\\monogame.extended\\3.8.0\\monogame.extended.3.8.0.nupkg.sha512",
+    "C:\\Users\\12044\\.nuget\\packages\\monogame.extended.content.pipeline\\3.8.0\\monogame.extended.content.pipeline.3.8.0.nupkg.sha512",
+    "C:\\Users\\12044\\.nuget\\packages\\monogame.extended.graphics\\3.8.0\\monogame.extended.graphics.3.8.0.nupkg.sha512",
+    "C:\\Users\\12044\\.nuget\\packages\\monogame.extended.scenegraphs\\3.8.0\\monogame.extended.scenegraphs.3.8.0.nupkg.sha512",
+    "C:\\Users\\12044\\.nuget\\packages\\monogame.extended.tiled\\3.8.0\\monogame.extended.tiled.3.8.0.nupkg.sha512",
+    "C:\\Users\\12044\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\12044\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\12044\\.nuget\\packages\\taglibsharp\\2.3.0\\taglibsharp.2.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}
