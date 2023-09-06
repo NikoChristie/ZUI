@@ -1,5 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"c:/Users/12044/Desktop/Portfolio/ZUI/Content/LongLoad.png","c:/Users/12044/Desktop/Portfolio/ZUI/Content/bin/DesktopGL/Content/LongLoad.xnb","TextureProcessor","Texture2DContent",645,32853,0.0046614
-"c:/Users/12044/Desktop/Portfolio/ZUI/Content/PlaceHolder.png","c:/Users/12044/Desktop/Portfolio/ZUI/Content/bin/DesktopGL/Content/PlaceHolder.xnb","TextureProcessor","Texture2DContent",376,16469,0.1692754
-"c:/Users/12044/Desktop/Portfolio/ZUI/Content/spaceHolder.png","c:/Users/12044/Desktop/Portfolio/ZUI/Content/bin/DesktopGL/Content/spaceHolder.xnb","TextureProcessor","Texture2DContent",459,16469,0.0023927
-"c:/Users/12044/Desktop/Portfolio/ZUI/Content/WideLoad.png","c:/Users/12044/Desktop/Portfolio/ZUI/Content/bin/DesktopGL/Content/WideLoad.xnb","TextureProcessor","Texture2DContent",960,32853,0.0030219
+"C:/Users/12044/Desktop/Portfolio/ZUI/Content/LongLoad.png","C:/Users/12044/Desktop/Portfolio/ZUI/Content/bin/DesktopGL/Content/LongLoad.xnb","TextureProcessor","Texture2DContent",645,32853,0.0020506
+"C:/Users/12044/Desktop/Portfolio/ZUI/Content/PlaceHolder.png","C:/Users/12044/Desktop/Portfolio/ZUI/Content/bin/DesktopGL/Content/PlaceHolder.xnb","TextureProcessor","Texture2DContent",376,16469,0.1316671
+"C:/Users/12044/Desktop/Portfolio/ZUI/Content/spaceHolder.png","C:/Users/12044/Desktop/Portfolio/ZUI/Content/bin/DesktopGL/Content/spaceHolder.xnb","TextureProcessor","Texture2DContent",459,16469,0.0016353
+"C:/Users/12044/Desktop/Portfolio/ZUI/Content/WideLoad.png","C:/Users/12044/Desktop/Portfolio/ZUI/Content/bin/DesktopGL/Content/WideLoad.xnb","TextureProcessor","Texture2DContent",960,32853,0.0037915

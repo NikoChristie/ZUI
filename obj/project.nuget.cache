@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vBvgVnJhLftZjtiCStH0lTqACyZkAb5bsp64F2gEC7JEKknXFwzEbcLy6GgQhFoI5kJQmXp9bbuzNn6JLxMhmg==",
+  "dgSpecHash": "jrOLae7dRn2wTHyoTLKDnoO2mu71WFmCB7K3+rqNodWp8AkPR/r8OoaRTHwHgdTfhvdxQ46IYPAxF/MqApHAuQ==",
   "success": true,
-  "projectFilePath": "c:\\Users\\12044\\Desktop\\Portfolio\\ZUI\\ZUI.csproj",
+  "projectFilePath": "C:\\Users\\12044\\Desktop\\Portfolio\\ZUI\\ZUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\12044\\.nuget\\packages\\autofac\\5.2.0\\autofac.5.2.0.nupkg.sha512",
     "C:\\Users\\12044\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",

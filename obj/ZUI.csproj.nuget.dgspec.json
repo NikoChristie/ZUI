@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\12044\\Desktop\\Portfolio\\ZUI\\ZUI.csproj": {}
+    "C:\\Users\\12044\\Desktop\\Portfolio\\ZUI\\ZUI.csproj": {}
   },
   "projects": {
-    "c:\\Users\\12044\\Desktop\\Portfolio\\ZUI\\ZUI.csproj": {
+    "C:\\Users\\12044\\Desktop\\Portfolio\\ZUI\\ZUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\12044\\Desktop\\Portfolio\\ZUI\\ZUI.csproj",
+        "projectUniqueName": "C:\\Users\\12044\\Desktop\\Portfolio\\ZUI\\ZUI.csproj",
         "projectName": "ZUI",
-        "projectPath": "c:\\Users\\12044\\Desktop\\Portfolio\\ZUI\\ZUI.csproj",
+        "projectPath": "C:\\Users\\12044\\Desktop\\Portfolio\\ZUI\\ZUI.csproj",
         "packagesPath": "C:\\Users\\12044\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\12044\\Desktop\\Portfolio\\ZUI\\obj\\",
+        "outputPath": "C:\\Users\\12044\\Desktop\\Portfolio\\ZUI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\12044\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -4,10 +4,10 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>c:/Users/12044/Desktop/Portfolio/ZUI/Content/PlaceHolder.png</File>
-    <File>c:/Users/12044/Desktop/Portfolio/ZUI/Content/WideLoad.png</File>
-    <File>c:/Users/12044/Desktop/Portfolio/ZUI/Content/LongLoad.png</File>
-    <File>c:/Users/12044/Desktop/Portfolio/ZUI/Content/spaceHolder.png</File>
+    <File>C:/Users/12044/Desktop/Portfolio/ZUI/Content/PlaceHolder.png</File>
+    <File>C:/Users/12044/Desktop/Portfolio/ZUI/Content/WideLoad.png</File>
+    <File>C:/Users/12044/Desktop/Portfolio/ZUI/Content/LongLoad.png</File>
+    <File>C:/Users/12044/Desktop/Portfolio/ZUI/Content/spaceHolder.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

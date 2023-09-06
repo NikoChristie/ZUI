@@ -85,6 +85,13 @@ public class Component : Transform2 {
         return this;
     }
 
+    /*
+    public virtual void DetachFromParent() {
+        Debug.Assert(this.ComponentParent.Children.Any(x => x == this));
+        this.ComponentParent.DetachChild(this);
+    }
+    */
+
     public Component SetPosition(Vector2 newPosition) {
         this.Position = newPosition;
         return this;
@@ -146,6 +153,25 @@ public class Component : Transform2 {
         if(this.Bounds.Contains(new Point((int)x, (int)y))) {
             List<Component> inChildren = this.Children.Select(c => c.GetComponentAt(x, y)).Where(c => c != null).ToList();
             return inChildren.FirstOrDefault() ?? this;
+        }
+        return null;
+    }
+
+    public Component GetComponentByName(string name) {
+        if(this.Name == name) {
+            return this;
+        }
+
+        foreach(Component child in this.Children) {
+            if(child.Name == name) {
+                return child;
+            }
+            else {
+                Component next = child.GetComponentByName(name);
+                if(next != null) {
+                    return next;
+                }
+            }
         }
         return null;
     }

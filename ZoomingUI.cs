@@ -56,38 +56,32 @@ public class ZoomingUI : Game {
         spriteBatch = new SpriteBatch(GraphicsDevice);
         ZoomingUI.GlobalGraphicsDevice = this.GraphicsDevice;
 
-        //this.musicManager = new Music.MusicManager(@"E:\Downloads\Kanye West\");
-        //this.musicManager = new Music.MusicManager(@"E:\Downloads\Music\");
-        this.musicManager = new Music.MusicManager(@"C:\Users\12044\Music");
-        /*
-        //this.musicManager = new Music.MusicManager(@"E:\Downloads\ABBA - Voulez-Vous (Deluxe Edition) (2010) [pradyutvam]");
-
-        var tagFile = TagLib.File.Create(@"E:\Downloads\Kanye West\Kanye West – The Life Of Pablo (T.L.O.P.) 2016\13. Kanye West - Wolves.mp3");
-        //var tagFile = TagLib.File.Create(@"E:\Downloads\ABBA - Voulez-Vous (Deluxe Edition) (2010) [pradyutvam]\01.  ABBA  -  As Good As New.mp3");
-        IPicture picture = tagFile.Tag.Pictures[0];
-        MemoryStream stream = new MemoryStream(picture.Data.Data);
-        Texture2D pablo = Texture2D.FromStream(GraphicsDevice, stream);
-        //Texture2D pablo = Texture2D.FromFile(GraphicsDevice, picture.Filename);
-        */
-    
-
-
-        //this.musicManager = new Music.MusicManager(@"E:\Downloads\");
-
         this.placeHolder = Content.Load<Texture2D>("PlaceHolder");
         this.spaceHolder = Content.Load<Texture2D>("SpaceHolder");
         this.wideload = Content.Load<Texture2D>("WideLoad");
         this.longload = Content.Load<Texture2D>("LongLoad");
 
+        //this.musicManager = new Music.MusicManager(@"E:\Downloads\Music\");
+        ZUI.FileSystem.FileSystemView fileSystemManager = new ZUI.FileSystem.FileSystemView(this.placeHolder);
+        fileSystemManager.SetRootDirectory("C:\\Users\\12044\\Documents"); // !!! Its important that directory names dont end in '\'
+        //fileSystemManager.SetRootDirectory(@"C:\Users\12044\Desktop\Portfolio\ZUI\SandBox\");
+    
+
+
+        //this.musicManager = new Music.MusicManager(@"E:\Downloads\");
+
+
         this.Root = 
             new TableLayout(this.placeHolder)
-                .AttachChild(musicManager.ToComponent(this.placeHolder));
+                .AttachChild(fileSystemManager);
+                //.AttachChild(musicManager.ToComponent(this.placeHolder));
                 //.AttachChild(new FileSystem.FolderComponent(this.spaceHolder, @"C:\Users\nikol\ZUI\SandBox\Root").SetPadding(10f, 10f));
                 //.AttachChild(new FolderComponent(this.placeHolder, @"C:\"));
                 //.AttachChild(GenerateFileTree(@"E:\"));
                 //.AttachChild(GenerateFileTree(@"C:\");
                 //.AttachChild(GenerateFileTree(@"C:\Users\nikol\"));
                 //.AttachChild(GenerateFileTree(@"C:\Users\nikol\.cargo\"));
+                //.AttachChild(GenerateFileTree(@"C:\Users\12044\Desktop\Portfolio\ZUI\SandBox\"));
 
         /*
         this.Column = new ColumnLayout(this.placeHolder);
@@ -107,8 +101,9 @@ public class ZoomingUI : Game {
                 .SetScale(1f)
                 .AttachChild(container);
         */
+        //Debug.Assert(this.Root.GetComponentByName(@"C:\Users\12044\Desktop\Portfolio\ZUI\SandBox\Root\New folder\New folder (5)") != null);
     }
-
+   
     protected override void Update(GameTime gameTime) {
         if(this.IsActive) {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape)) {
@@ -200,11 +195,11 @@ public class ZoomingUI : Game {
             try {
                 string[] children = Directory.GetFileSystemEntries(path, "*", SearchOption.TopDirectoryOnly);
 
-                /*
-                foreach(string child in children) {
-                    current.AttachChild(GenerateFileTree(child));
-                }
-                */
+                //
+                // foreach(string child in children) {
+                //     current.AttachChild(GenerateFileTree(child));
+                // }
+                //
                 if(children.Length > 0) {
                     current.AttachChildren(children.Select(c => GenerateFileTree(c)).ToList());
                 }
