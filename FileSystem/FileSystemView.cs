@@ -19,6 +19,8 @@ public class FileSystemView : TableLayout {
     private FileComponent RootComponent;
     private FileSystemWatcher watcher;
 
+    public bool IncludeHiddenFiles = false;
+
     public FileSystemView(Texture2D texture) : base(texture) {
 
     }
@@ -66,10 +68,14 @@ public class FileSystemView : TableLayout {
             
             current = (FileComponent)new FileComponent(this.Texture)
                 .SetPathName(path)
-                .SetPadding(5f, 5f);
+                .SetPadding(7f, 7f);
 
             try {
-                string[] children = Directory.GetFileSystemEntries(path, "*", SearchOption.TopDirectoryOnly);
+                string[] children = 
+                    Directory
+                        .GetFileSystemEntries(path, "*", SearchOption.TopDirectoryOnly)
+                        .Where(f => !((File.GetAttributes(f) & FileAttributes.Hidden) == FileAttributes.Hidden)) // TODO: add conditional
+                        .ToArray();
 
                 if(children.Length > 0) {
                     current.AttachChildren(children.Select(c => (Component)GenerateFileTree(c)).ToList());
@@ -105,6 +111,7 @@ public class FileSystemView : TableLayout {
         Console.WriteLine($"{path}'s parent is {parent}");
 
         if(parent != null) {
+            Debug.Assert(this.RootComponent.GetComponentByName(parent) != null, $"RootComponents has no child component named \"{parent}\"");
             this.RootComponent
                 .GetComponentByName(parent)
                 .AttachChild(
@@ -121,6 +128,7 @@ public class FileSystemView : TableLayout {
         Console.WriteLine($"{path}'s parent is {parent}");
 
         if(parent != null) {
+            Debug.Assert(this.RootComponent.GetComponentByName(parent) != null, $"RootComponents has no child component named \"{parent}\"");
             this.RootComponent
                 .GetComponentByName(parent)
                 .DetachChild(this.RootComponent.GetComponentByName(path));
@@ -135,6 +143,7 @@ public class FileSystemView : TableLayout {
         string newPath = e.FullPath;
 
         Component component = this.RootComponent.GetComponentByName(path);
+
         if(component != null) {
             component.SetName(newPath);
         }

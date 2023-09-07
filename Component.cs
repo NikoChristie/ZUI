@@ -39,7 +39,8 @@ public class Component : Transform2 {
     }
 
     public Component(Texture2D texture) {
-        this.Color = new Color(Random.Shared.Next(0, 255), Random.Shared.Next(0, 255), Random.Shared.Next(0, 255));
+        //this.Color = new Color(Random.Shared.Next(0, 255), Random.Shared.Next(0, 255), Random.Shared.Next(0, 255));
+        this.Color = Color.White;
         this.Texture = texture;
         this.Name = this.GetHashCode().ToString();
     }

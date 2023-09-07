@@ -21,6 +21,7 @@ public class ZoomingUI : Game {
     private Texture2D placeHolder;
     private Texture2D wideload;
     private Texture2D longload;
+    private Texture2D folder;
     
     private int lastMouseScroll = 0;
     private Point lastMousePosition;
@@ -60,11 +61,13 @@ public class ZoomingUI : Game {
         this.spaceHolder = Content.Load<Texture2D>("SpaceHolder");
         this.wideload = Content.Load<Texture2D>("WideLoad");
         this.longload = Content.Load<Texture2D>("LongLoad");
+        this.folder = Content.Load<Texture2D>("Folder");
 
         //this.musicManager = new Music.MusicManager(@"E:\Downloads\Music\");
-        ZUI.FileSystem.FileSystemView fileSystemManager = new ZUI.FileSystem.FileSystemView(this.placeHolder);
-        fileSystemManager.SetRootDirectory("C:\\Users\\12044\\Documents"); // !!! Its important that directory names dont end in '\'
-        //fileSystemManager.SetRootDirectory(@"C:\Users\12044\Desktop\Portfolio\ZUI\SandBox\");
+        ZUI.FileSystem.FileSystemView fileSystemManager = new ZUI.FileSystem.FileSystemView(this.folder);
+        // !!! Its important that directory names dont end in '\'
+        //fileSystemManager.SetRootDirectory("C:\\Users\\12044");
+        fileSystemManager.SetRootDirectory("C:\\Users\\12044\\Documents"); 
     
 
 
@@ -82,26 +85,6 @@ public class ZoomingUI : Game {
                 //.AttachChild(GenerateFileTree(@"C:\Users\nikol\"));
                 //.AttachChild(GenerateFileTree(@"C:\Users\nikol\.cargo\"));
                 //.AttachChild(GenerateFileTree(@"C:\Users\12044\Desktop\Portfolio\ZUI\SandBox\"));
-
-        /*
-        this.Column = new ColumnLayout(this.placeHolder);
-        this.Row = new RowLayout(this.wideload).SetPadding(25f);
-        this.Table = new TableLayout(this.longload).SetPadding(10f, 10f);
-
-        Component container = 
-            new TableLayout(this.placeHolder)
-                .SetPadding(10f, 25f)
-                .AttachChild(this.Row)
-                .AttachChild(this.Column)
-                .AttachChild(this.Table);
-
-        this.Root = 
-            new Component(this.placeHolder)
-                .SetPosition(100f, 100f)
-                .SetScale(1f)
-                .AttachChild(container);
-        */
-        //Debug.Assert(this.Root.GetComponentByName(@"C:\Users\12044\Desktop\Portfolio\ZUI\SandBox\Root\New folder\New folder (5)") != null);
     }
    
     protected override void Update(GameTime gameTime) {
@@ -180,41 +163,5 @@ public class ZoomingUI : Game {
         Debug.WriteLine(this.graphics.GraphicsDevice.Metrics.DrawCount);
 
         base.Draw(gameTime);
-    }
-
-    private Component GenerateFileTree(string path) {
-        
-        Console.WriteLine(path);
-
-        Component current;
-
-        if(Directory.Exists(path)) {
-            
-            current = new TableLayout(this.placeHolder).SetPadding(5f, 5f);
-
-            try {
-                string[] children = Directory.GetFileSystemEntries(path, "*", SearchOption.TopDirectoryOnly);
-
-                //
-                // foreach(string child in children) {
-                //     current.AttachChild(GenerateFileTree(child));
-                // }
-                //
-                if(children.Length > 0) {
-                    current.AttachChildren(children.Select(c => GenerateFileTree(c)).ToList());
-                }
-            }
-            catch(UnauthorizedAccessException) {
-
-            }
-            catch(DirectoryNotFoundException) {
-
-            }
-        }
-        else {
-            current = new Component(this.placeHolder);
-        }
-
-        return current;
     }
 }
