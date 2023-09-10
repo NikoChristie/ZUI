@@ -4,6 +4,8 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/12044/Desktop/Portfolio/ZUI/Content/File.png</File>
+    <File>C:/Users/12044/Desktop/Portfolio/ZUI/Content/File.spritefont</File>
     <File>C:/Users/12044/Desktop/Portfolio/ZUI/Content/Folder.png</File>
     <File>C:/Users/12044/Desktop/Portfolio/ZUI/Content/LongLoad.png</File>
     <File>C:/Users/12044/Desktop/Portfolio/ZUI/Content/PlaceHolder.png</File>
@@ -11,6 +13,8 @@
     <File>C:/Users/12044/Desktop/Portfolio/ZUI/Content/WideLoad.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File>Font.spritefont</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

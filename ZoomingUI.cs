@@ -17,11 +17,13 @@ namespace ZUI;
 public class ZoomingUI : Game {
     private GraphicsDeviceManager graphics;
     private SpriteBatch spriteBatch;
+    private SpriteFont font;
     private Texture2D spaceHolder;
     private Texture2D placeHolder;
     private Texture2D wideload;
     private Texture2D longload;
     private Texture2D folder;
+    private Texture2D file;
     
     private int lastMouseScroll = 0;
     private Point lastMousePosition;
@@ -62,12 +64,16 @@ public class ZoomingUI : Game {
         this.wideload = Content.Load<Texture2D>("WideLoad");
         this.longload = Content.Load<Texture2D>("LongLoad");
         this.folder = Content.Load<Texture2D>("Folder");
+        this.file = Content.Load<Texture2D>("File");
+        this.font  = Content.Load<SpriteFont>("Font");
 
         //this.musicManager = new Music.MusicManager(@"E:\Downloads\Music\");
-        ZUI.FileSystem.FileSystemView fileSystemManager = new ZUI.FileSystem.FileSystemView(this.folder);
+        ZUI.FileSystem.FileSystemView fileSystemManager = new ZUI.FileSystem.FileSystemView(
+            this.placeHolder, this.file, this.folder, this.font);
         // !!! Its important that directory names dont end in '\'
         //fileSystemManager.SetRootDirectory("C:\\Users\\12044");
         fileSystemManager.SetRootDirectory("C:\\Users\\12044\\Documents"); 
+        //fileSystemManager.SetRootDirectory(@"C:\Users\12044\Desktop\Portfolio\ZUI");
     
 
 

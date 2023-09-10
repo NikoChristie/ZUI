@@ -23,8 +23,8 @@ public class TableLayout : Layout {
         if(this.Children.Count > 0) {
             
             // How many children we will fit in each row/column
-            float width = (float)Math.Ceiling(Math.Sqrt((this.Rectangle.Width / Rectangle.Height) * this.Children.Count));
-            float height = (float)Math.Ceiling(Math.Sqrt((this.Rectangle.Height / this.Rectangle.Width) * this.Children.Count));
+            float width = (float)Math.Ceiling(Math.Sqrt(this.Rectangle.Width / Rectangle.Height * this.Children.Count));
+            float height = (float)Math.Ceiling(Math.Sqrt(this.Rectangle.Height / this.Rectangle.Width * this.Children.Count));
 
             // Find the largest child and give each child that much space
             float largestChildWidth = this.Children.Select(c => c.Rectangle.Width).Max();

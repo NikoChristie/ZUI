@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/12044/Desktop/Portfolio/ZUI/Content/LongLoad.png</SourceFile>
-  <SourceTime>2023-05-27T18:37:13.1206871-05:00</SourceTime>
-  <DestFile>C:/Users/12044/Desktop/Portfolio/ZUI/Content/bin/DesktopGL/Content/LongLoad.xnb</DestFile>
-  <DestTime>2023-09-09T21:21:35.348375-05:00</DestTime>
+  <SourceFile>C:/Users/12044/Desktop/Portfolio/ZUI/Content/File.png</SourceFile>
+  <SourceTime>2023-09-09T22:27:26.0917994-05:00</SourceTime>
+  <DestFile>C:/Users/12044/Desktop/Portfolio/ZUI/Content/bin/DesktopGL/Content/File.xnb</DestFile>
+  <DestTime>2023-09-09T22:28:32.8537897-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T06:44:56-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

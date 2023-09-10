@@ -14,15 +14,18 @@ using MonoGame.Extended.Sprites;
 namespace ZUI.FileSystem;
 
 public class FileSystemView : TableLayout {
-
+    private SpriteFont SpriteFont;
     public string Root { get; private set;}
     private FileComponent RootComponent;
     private FileSystemWatcher watcher;
-
     public bool IncludeHiddenFiles = false;
 
-    public FileSystemView(Texture2D texture) : base(texture) {
-
+    private Texture2D FolderTexture;
+    private Texture2D FileTexture;
+    public FileSystemView(Texture2D texture, Texture2D fileTexture, Texture2D folderTexture, SpriteFont spriteFont) : base(texture) {
+        this.SpriteFont = spriteFont;
+        this.FolderTexture = folderTexture;
+        this.FileTexture = fileTexture;
     }
 
     public FileSystemView SetRootDirectory(string root) {
@@ -31,7 +34,6 @@ public class FileSystemView : TableLayout {
         this.RootComponent = GenerateFileTree(root);
         this.AttachChild(this.RootComponent);
 
-        // TODO: add all that cool watcher stuff
         this.watcher = new FileSystemWatcher(root);
         /*
         this.watcher.NotifyFilter = NotifyFilters.DirectoryName 
@@ -66,7 +68,7 @@ public class FileSystemView : TableLayout {
 
         if(Directory.Exists(path)) {
             
-            current = (FileComponent)new FileComponent(this.Texture)
+            current = (FileComponent)new FileComponent(this.FolderTexture, this.SpriteFont)
                 .SetPathName(path)
                 .SetPadding(7f, 7f);
 
@@ -89,7 +91,7 @@ public class FileSystemView : TableLayout {
             }
         }
         else {
-            current = new FileComponent(this.Texture).SetPathName(path);
+            current = new FileComponent(this.FileTexture, this.SpriteFont).SetPathName(path);
         }
 
         return current;
@@ -115,7 +117,7 @@ public class FileSystemView : TableLayout {
             this.RootComponent
                 .GetComponentByName(parent)
                 .AttachChild(
-                    new FileComponent(this.Texture).SetName(path)
+                    new FileComponent(this.Texture, this.SpriteFont).SetName(path)
                 );
         }
     }
