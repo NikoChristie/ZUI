@@ -9,7 +9,6 @@ using MonoGame.Extended.BitmapFonts;
 using MonoGame.Extended.ViewportAdapters;
 using MonoGame.Extended.SceneGraphs;
 using MonoGame.Extended.Sprites;
-using System.Linq;
 using System.Threading;
 
 namespace ZUI.FileSystem;
@@ -19,7 +18,7 @@ public class FileComponent : TableLayout {
     public string PathName {get; private set;}
     private BitmapFont Font;
 
-    // A filename cannot contain any of the following characters: \ / : * ? " < > | 
+    // A filename cannot contain any of the following characters '\ / : * ? " < > | '
     public FileComponent (Texture2D texture, BitmapFont font) : base(texture) {
         this.Font = font;
     }
@@ -58,6 +57,14 @@ public class FileComponent : TableLayout {
                     1f);
                 spriteBatch.End();
             }
+        }
+    }
+
+    // Open File
+    public override void Invoke() {
+        base.Invoke();
+        if(Directory.Exists(this.Name)) {
+            // TODO: run "explorer.exe {this.Name}"
         }
     }
 }

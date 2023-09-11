@@ -30,6 +30,8 @@ public class FileSystemView : TableLayout {
         this.FileTexture = fileTexture;
     }
 
+    public const string FileExplorerExecutable = "explorer.exe";
+
     public FileSystemView SetRootDirectory(string root) {
         // Update Watcher and rebuild file view
         this.Root = root;
@@ -37,10 +39,6 @@ public class FileSystemView : TableLayout {
         this.AttachChild(this.RootComponent);
 
         this.watcher = new FileSystemWatcher(root);
-        /*
-        this.watcher.NotifyFilter = NotifyFilters.DirectoryName 
-                                  | NotifyFilters.FileName;
-        */
 
         // TODO: find out wich of these are necessary
         this.watcher.NotifyFilter = NotifyFilters.Attributes
@@ -59,12 +57,35 @@ public class FileSystemView : TableLayout {
         this.watcher.IncludeSubdirectories = true;
         this.watcher.EnableRaisingEvents = true;
 
+        Console.WriteLine(GetFileComponentFromPath(@"C:\Users\12044\Documents\Streets of Rogue\CloudData"));
+
         return this;
     }
 
+    public FileComponent GetFileComponentFromPath(string path) {
+        // "/path/to/file/"
+        //      --> path
+        //            \
+        //            to
+        //            /
+        //          file
+
+        FileComponent target = null;
+
+        Debug.Assert(path.StartsWith(this.Root));
+        if (path.StartsWith(this.Root)) {
+            path = path.Replace(this.Root, ""); // path.Skip(this.Root.Length).ToString(); // remove root from path 
+            Console.WriteLine(path);
+        }
+
+        return target;
+
+    }
+
     private FileComponent GenerateFileTree(string path) {
-        
-        Console.WriteLine(path);
+
+        // Console.WriteLine(path);
+        Debug.WriteLine(path);
 
         FileComponent current;
 
@@ -152,6 +173,6 @@ public class FileSystemView : TableLayout {
             component.SetName(newPath);
         }
 
-            //.SetName(newPath);
+        // component?.SetName(newPath);
     }
 }

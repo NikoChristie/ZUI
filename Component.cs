@@ -184,4 +184,8 @@ public class Component : Transform2 {
                                      .Select(i => $"\"{i.Key}\": {i.Value}")
                                      .ToArray()) + "\n}";
     }
+
+    public virtual void Invoke() { 
+        
+    }
 }

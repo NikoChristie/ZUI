@@ -98,10 +98,13 @@ public class ZoomingUI : Game {
                 offsetY += mouseState.Y - lastMousePosition.Y;
             }
 
-            if(mouseState.LeftButton == ButtonState.Pressed) {
-                Console.WriteLine(this.Root.GetComponentAt(mouseState.X, mouseState.Y)?.ToString());
+            if(mouseState.LeftButton == ButtonState.Pressed && Keyboard.GetState().IsKeyDown(Keys.LeftShift)) {
+                this.Root.GetComponentAt(mouseState.X, mouseState.Y)?.Invoke();
             }
 
+            if(mouseState.LeftButton == ButtonState.Pressed) { // Get Component Name
+                Console.WriteLine(this.Root.GetComponentAt(mouseState.X, mouseState.Y)?.ToString());
+            }
             if(mouseState.MiddleButton == ButtonState.Pressed) {
                 Console.WriteLine(this.Root.GetComponentAt(mouseState.X, mouseState.Y)?.ToDebugString());
             }
