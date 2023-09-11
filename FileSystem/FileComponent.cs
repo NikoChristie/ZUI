@@ -17,11 +17,11 @@ namespace ZUI.FileSystem;
 public class FileComponent : TableLayout {
 
     public string PathName {get; private set;}
-    private SpriteFont SpriteFont;
+    private BitmapFont Font;
 
     // A filename cannot contain any of the following characters: \ / : * ? " < > | 
-    public FileComponent (Texture2D texture, SpriteFont spriteFont) : base(texture) {
-        this.SpriteFont = spriteFont;
+    public FileComponent (Texture2D texture, BitmapFont font) : base(texture) {
+        this.Font = font;
     }
 
     public FileComponent SetPathName(string path) {
@@ -35,7 +35,7 @@ public class FileComponent : TableLayout {
         if(this.InView(spriteBatch)) {
             base.Draw(spriteBatch);
             
-            if(this.WorldScale.X < TextFadeRange || this.WorldScale.Y < TextFadeRange) {
+            if(this.Children.Count == 0 || (this.WorldScale.X < TextFadeRange || this.WorldScale.Y < TextFadeRange)) { // Draw if in range or last element
                 string fileName = 
                     File.Exists(this.Name) ?
                     Path.GetFileName(this.Name) :
@@ -44,10 +44,10 @@ public class FileComponent : TableLayout {
                 // Calculate Text Scale
                 spriteBatch.Begin();
 
-                Vector2 size = new(this.Bounds.Size.X / this.SpriteFont.MeasureString(fileName).X);
+                Vector2 size = new(this.Bounds.Size.X / this.Font.MeasureString(fileName).Width);
 
                 spriteBatch.DrawString(
-                    this.SpriteFont,
+                    this.Font,
                     fileName,
                     this.WorldPosition,
                     Color.Black,

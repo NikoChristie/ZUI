@@ -73,3 +73,5 @@ C:\Users\12044\Desktop\Portfolio\ZUI\obj\Release\net7.0\ref\ZUI.dll
 C:\Users\12044\Desktop\Portfolio\ZUI\bin\Release\net7.0\Content\Folder.xnb
 C:\Users\12044\Desktop\Portfolio\ZUI\bin\Release\net7.0\Content\Font.xnb
 C:\Users\12044\Desktop\Portfolio\ZUI\bin\Release\net7.0\Content\File.xnb
+C:\Users\12044\Desktop\Portfolio\ZUI\bin\Release\net7.0\Content\font\ArialFont.xnb
+C:\Users\12044\Desktop\Portfolio\ZUI\bin\Release\net7.0\Content\font\ArialFont_0.xnb

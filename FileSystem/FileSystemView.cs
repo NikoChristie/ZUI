@@ -14,7 +14,8 @@ using MonoGame.Extended.Sprites;
 namespace ZUI.FileSystem;
 
 public class FileSystemView : TableLayout {
-    private SpriteFont SpriteFont;
+    //private SpriteFont SpriteFont;
+    private BitmapFont Font;
     public string Root { get; private set;}
     private FileComponent RootComponent;
     private FileSystemWatcher watcher;
@@ -22,8 +23,9 @@ public class FileSystemView : TableLayout {
 
     private Texture2D FolderTexture;
     private Texture2D FileTexture;
-    public FileSystemView(Texture2D texture, Texture2D fileTexture, Texture2D folderTexture, SpriteFont spriteFont) : base(texture) {
-        this.SpriteFont = spriteFont;
+    public FileSystemView(Texture2D texture, Texture2D fileTexture, Texture2D folderTexture, BitmapFont font) : base(texture) {
+        //this.SpriteFont = spriteFont;
+        this.Font = font;
         this.FolderTexture = folderTexture;
         this.FileTexture = fileTexture;
     }
@@ -68,7 +70,7 @@ public class FileSystemView : TableLayout {
 
         if(Directory.Exists(path)) {
             
-            current = (FileComponent)new FileComponent(this.FolderTexture, this.SpriteFont)
+            current = (FileComponent)new FileComponent(this.FolderTexture, this.Font)
                 .SetPathName(path)
                 .SetPadding(7f, 7f);
 
@@ -91,7 +93,7 @@ public class FileSystemView : TableLayout {
             }
         }
         else {
-            current = new FileComponent(this.FileTexture, this.SpriteFont).SetPathName(path);
+            current = new FileComponent(this.FileTexture, this.Font).SetPathName(path);
         }
 
         return current;
@@ -117,7 +119,7 @@ public class FileSystemView : TableLayout {
             this.RootComponent
                 .GetComponentByName(parent)
                 .AttachChild(
-                    new FileComponent(this.Texture, this.SpriteFont).SetName(path)
+                    new FileComponent(this.Texture, this.Font).SetName(path)
                 );
         }
     }

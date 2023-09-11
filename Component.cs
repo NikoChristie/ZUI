@@ -109,27 +109,10 @@ public class Component : Transform2 {
     public bool InView(SpriteBatch spriteBatch) {
         return 
             (this.WorldScale.X > this.MinimumChildDisplayScale || this.WorldScale.Y > this.MinimumChildDisplayScale) &&
-            //this.Depth <= Component.MaximumDepth &&
             ZoomingUI.GetScreenSize(spriteBatch).Intersects(this.Bounds);        
     }
 
     public virtual void Draw(SpriteBatch spriteBatch) {
-        /*
-        Rectangle screenSize = new Rectangle(0, 0, spriteBatch.GraphicsDevice.Adapter.CurrentDisplayMode.Width, spriteBatch.GraphicsDevice.Adapter.CurrentDisplayMode.Height);
-
-        if(this.WorldScale.X > Component.MinimumChildDisplayScale || this.WorldScale.Y > Component.MinimumChildDisplayScale) {
-            if(screenSize.Intersects(this.Bounds)) {
-                // Normal Drawing Technique
-                spriteBatch.Begin();
-                spriteBatch.Draw(this.Texture, this.WorldPosition, null, this.Color, this.WorldRotation, Vector2.One, this.WorldScale, SpriteEffects.None, 1f);
-                spriteBatch.End();
-
-                foreach(var child in this.Children) {
-                    child.Draw(spriteBatch);
-                }
-            }
-        }
-        */
         if(this.InView(spriteBatch)) {
             spriteBatch.Begin();
             spriteBatch.Draw(this.Texture, this.WorldPosition, null, this.Color, this.WorldRotation, Vector2.One, this.WorldScale, SpriteEffects.None, 1f);
@@ -184,5 +167,21 @@ public class Component : Transform2 {
     public Component SetName(string newName) {
         this.Name = newName;
         return this;
+    }
+
+    public virtual Dictionary<string, string> DebugInfo() {
+        return new Dictionary<string, string> {
+            {"Name", this.Name },
+            {"Position", $"({this.WorldPosition.X}, {this.WorldPosition.Y})" },
+            {"Scale", $"({this.WorldScale.X}, {this.WorldScale.Y})" },
+            {"Parent", this.ComponentParent is null ? "None" : this.ComponentParent.Name },
+            {"Children", this.Children.Count.ToString() },
+        };
+    }
+
+    public string ToDebugString() {
+        return "{\n" + String.Join("\n", this.DebugInfo()
+                                     .Select(i => $"\"{i.Key}\": {i.Value}")
+                                     .ToArray()) + "\n}";
     }
 }

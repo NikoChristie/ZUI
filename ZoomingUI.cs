@@ -17,7 +17,10 @@ namespace ZUI;
 public class ZoomingUI : Game {
     private GraphicsDeviceManager graphics;
     private SpriteBatch spriteBatch;
-    private SpriteFont font;
+
+    private SpriteFont spriteFont;
+    private BitmapFont font;
+
     private Texture2D spaceHolder;
     private Texture2D placeHolder;
     private Texture2D wideload;
@@ -31,11 +34,6 @@ public class ZoomingUI : Game {
     public static GraphicsDevice GlobalGraphicsDevice;
 
     private Component Root;
-    /*
-    private Component Column;
-    private Component Row;
-    private Component Table;
-    */
 
     private Music.MusicManager musicManager;
 
@@ -59,13 +57,15 @@ public class ZoomingUI : Game {
         spriteBatch = new SpriteBatch(GraphicsDevice);
         ZoomingUI.GlobalGraphicsDevice = this.GraphicsDevice;
 
+        // TODO: singleton pattern for getting textures
         this.placeHolder = Content.Load<Texture2D>("PlaceHolder");
         this.spaceHolder = Content.Load<Texture2D>("SpaceHolder");
         this.wideload = Content.Load<Texture2D>("WideLoad");
         this.longload = Content.Load<Texture2D>("LongLoad");
         this.folder = Content.Load<Texture2D>("Folder");
         this.file = Content.Load<Texture2D>("File");
-        this.font  = Content.Load<SpriteFont>("Font");
+        this.spriteFont  = Content.Load<SpriteFont>("Font");
+        this.font = Content.Load<BitmapFont>("font/ArialFont");
 
         //this.musicManager = new Music.MusicManager(@"E:\Downloads\Music\");
         ZUI.FileSystem.FileSystemView fileSystemManager = new ZUI.FileSystem.FileSystemView(
@@ -76,21 +76,10 @@ public class ZoomingUI : Game {
         //fileSystemManager.SetRootDirectory(@"C:\Users\12044\Desktop\Portfolio\ZUI");
     
 
-
-        //this.musicManager = new Music.MusicManager(@"E:\Downloads\");
-
-
         this.Root = 
             new TableLayout(this.placeHolder)
                 .AttachChild(fileSystemManager);
                 //.AttachChild(musicManager.ToComponent(this.placeHolder));
-                //.AttachChild(new FileSystem.FolderComponent(this.spaceHolder, @"C:\Users\nikol\ZUI\SandBox\Root").SetPadding(10f, 10f));
-                //.AttachChild(new FolderComponent(this.placeHolder, @"C:\"));
-                //.AttachChild(GenerateFileTree(@"E:\"));
-                //.AttachChild(GenerateFileTree(@"C:\");
-                //.AttachChild(GenerateFileTree(@"C:\Users\nikol\"));
-                //.AttachChild(GenerateFileTree(@"C:\Users\nikol\.cargo\"));
-                //.AttachChild(GenerateFileTree(@"C:\Users\12044\Desktop\Portfolio\ZUI\SandBox\"));
     }
    
     protected override void Update(GameTime gameTime) {
@@ -111,6 +100,10 @@ public class ZoomingUI : Game {
 
             if(mouseState.LeftButton == ButtonState.Pressed) {
                 Console.WriteLine(this.Root.GetComponentAt(mouseState.X, mouseState.Y)?.ToString());
+            }
+
+            if(mouseState.MiddleButton == ButtonState.Pressed) {
+                Console.WriteLine(this.Root.GetComponentAt(mouseState.X, mouseState.Y)?.ToDebugString());
             }
 
             // Zoom

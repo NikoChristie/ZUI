@@ -7,6 +7,8 @@
     <File>C:/Users/12044/Desktop/Portfolio/ZUI/Content/File.png</File>
     <File>C:/Users/12044/Desktop/Portfolio/ZUI/Content/File.spritefont</File>
     <File>C:/Users/12044/Desktop/Portfolio/ZUI/Content/Folder.png</File>
+    <File>C:/Users/12044/Desktop/Portfolio/ZUI/Content/font/ArialFont_0.png</File>
+    <File>C:/Users/12044/Desktop/Portfolio/ZUI/Content/font/ArialFont.fnt</File>
     <File>C:/Users/12044/Desktop/Portfolio/ZUI/Content/LongLoad.png</File>
     <File>C:/Users/12044/Desktop/Portfolio/ZUI/Content/PlaceHolder.png</File>
     <File>C:/Users/12044/Desktop/Portfolio/ZUI/Content/spaceHolder.png</File>
@@ -15,6 +17,8 @@
   <DestFiles>
     <File xsi:nil="true" />
     <File>Font.spritefont</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
